@@ -28,7 +28,7 @@ def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
     """
     tonica = tonica.upper()
     try:
-        intervalos = ESCALAS[tonalidade]
+        intervalos = ESCALAS[tonalidade.lower()]
         tonica_posicao = NOTAS.index(tonica)
     except ValueError:
         raise ValueError(
