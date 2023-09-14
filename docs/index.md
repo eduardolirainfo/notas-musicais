@@ -1,5 +1,4 @@
 ![logo do projeto](assets/logo.png){ width="300" .center }
-
 # Notas musicais
 
 Notas musicais é um CLI para ajudar na formação de escalas, acordes e campos harmônicos.
@@ -7,13 +6,15 @@ Notas musicais é um CLI para ajudar na formação de escalas, acordes e campos 
 Toda a aplicação é baseada em um comando chamado `notas-musicais`. Esse comando tem um subcomando relacionado a cada ação que a aplicação pode realizar. Como `escalas`, `acordes` e `campo-harmonico`
 {% include "templates/cards.html" %}
 
+
 {% include "templates/instalacao.md" %}
 
-## como usar?
+## Como usar?
 
 ### Escalas
 
 Você pode chamar as escalas via linha de comando. Por exemplo:
+
 
 ```bash
 {{ commands.run }} escala
@@ -62,6 +63,7 @@ Você pode alterar a tonalidade da escala também! Esse é o segundo parâmetro 
 
 ```
 
+
 ## Acordes
 
 Uso básico
@@ -87,6 +89,7 @@ Uso básico
 ```
 
 Até o momento você usar acordes maiores, menores, dimunito e aumentados
+
 
 ## Campo harmônico
 
@@ -146,7 +149,7 @@ Para descobrir outras opções, você pode usar a flag `--help`:
 
 ```bash
 {{ commands.run }} --help
-
+                                                                       
  Usage: notas-musicais [OPTIONS] COMMAND [ARGS]...
 
 ╭─ Commands ──────────────────────────────────────────────────────────╮
@@ -162,9 +165,9 @@ As informações sobre os subcomandos podem ser acessadas usando a flag `--help`
 
 ```bash
 {{ commands.run }} campo-harmonico --help
-
- Usage: notas-musicais campo-harmonico [OPTIONS] [TONICA] [TONALIDADE]
-
+                                                                       
+ Usage: notas-musicais campo-harmonico [OPTIONS] [TONICA] [TONALIDADE] 
+                                                                       
 ╭─ Arguments ─────────────────────────────────────────────────────────╮
 │   tonica          [TONICA]      Tônica do campo harmônico           │
 │                                 [default: c]                        │
