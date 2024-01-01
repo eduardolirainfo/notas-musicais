@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "notas-musicais"
+version = "0.1.0"
+description = ""
+authors = ["Eduardo Lira <eduardolirainfo@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "notas_musicais" }]
+
+[tool.poetry.scripts]
+notas-musicais = "notas_musicais.cli:app"
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = "^0.7.0"
+rich = "^13.3.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
+blue = "^0.9.1"
+isort = "^5.12.0"
+taskipy = "^1.10.4"
+
+
+[tool.poetry.group.doc.dependencies]
+mkdocs-material = "^9.1.5"
+mkdocstrings = "^0.20.0"
+mkdocstrings-python = "^0.8.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "--doctest-modules"
+
+[tool.isort]
+profile = "black"
+known_first_party = "notas_musicais"
+known_third_party = "pytest"
+line_length = 79
+
+[tool.taskipy.tasks]
+lint = "blue --check --diff . && isort --check --diff ."
+docs = "mkdocs serve"
+pre_test = "task lint"
+test = "pytest -s -x --cov=notas_musicais -vv"
+post_test = "coverage html"

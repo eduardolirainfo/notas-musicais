@@ -1,0 +1,34 @@
+site_name: Notas Musicais
+repo_url: https://github.com/eduardolirainfo/notas-musicais
+repo_name: eduardolirainfo/notas-musicais
+edit_uri: tree/master/docs
+theme:
+  name: material
+  language: pt-br
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.tasklist
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [notas_musicais]
+
+watch:
+  - notas_musicais
