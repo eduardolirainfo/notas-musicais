@@ -40,6 +40,7 @@ ESCALAS = {"maior": (0, 2, 4, 5, 7, 9, 11), "menor": (0, 2, 3, 5, 7, 8, 10)}
 
 
 def associar_intervalos_tom_semitom(intervalos, tom=2, semitom=1):
+    """Associa os intervalos com tom e semitom."""
     intervalos_associados = []
 
     for intervalo in intervalos:
@@ -67,7 +68,6 @@ def ajustar_acidente(
     nota_atual: str,
     nota_alterada: str,
     nota_anterior: str,
-    intervalos: tuple[int],
     intervalos_associados: list[int],
 ) -> str:
     """
@@ -99,26 +99,14 @@ def ajustar_acidente(
         else:
             nota_atual = tonica_nome + "b"
 
-    # tonica_pos_anterior = NOTAS_ESCALA.index(nota_anterior)
-    # tonica_pos_atual = (tonica_pos_anterior + 1) % len(NOTAS_ESCALA)
-
-    # intervalo_anterior = intervalos[tonica_pos_anterior % len(intervalos)]
-    # intervalo_atual = intervalos[tonica_pos_atual % len(intervalos)]
-    # contar os registros de um array
-    #
     intera_intervalo = len(NOTAS)
 
     intervalo = intervalos_associados[intera_intervalo - 1]
 
-    # semitons = intervalo_atual - intervalo_anterior
-
-    # diferenca_intervalo = (intervalo_atual - intervalo_anterior) % len(intervalos)
     tonica = NOTAS[0] if len(NOTAS) > 0 else ""
     nota_anterior = NOTAS[-1] if len(NOTAS) > 0 else ""
 
     result = nota_atual
-
-    # utilizar o intervalo para verificar se é bemol ou sustenido, por enquanto
 
     if intervalo == 1:
         if nota_alterada[0] == nota_anterior[0]:
@@ -216,9 +204,7 @@ def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
         nota_alterada = nota_nome + tonica_simbolo if len(nota_nome) > 0 else ""
 
         intervalos_associados = converte_escala(intervalos)
-        # print(intervalos_associados)
         if len(temp) > 0:
-            # print(nota_nome[0], nota_anterior)
             if nota_nome[0] in temp[-1][0]:
                 nota_pos = (nota_pos + 1) % len(NOTAS_ESCALA)
                 nota_nome = NOTAS_ESCALA[nota_pos]
@@ -227,7 +213,6 @@ def escala(tonica: str, tonalidade: str) -> dict[str, list[str]]:
             nota_nome + tonica_simbolo,
             nota_alterada,
             nota_anterior,
-            intervalos,
             intervalos_associados,
         )
 

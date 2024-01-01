@@ -59,6 +59,7 @@ def acorde(cifra):
         >>> acorde('Cm+')
         {'notas': ['C', 'D#', 'G#'], 'graus': ['I', 'III-', 'V+']}
     """
+
     if "m" in cifra and "dim" not in cifra:
         notas, graus = _menor(cifra)
     elif "°" in cifra or "dim" in cifra:
